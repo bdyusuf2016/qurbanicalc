@@ -281,15 +281,15 @@
                     </div>
                     <div>
                         <label class="block text-[11px] font-bold uppercase text-slate-600 dark:text-slate-200 mb-1.5">Project URL</label>
-                        <input type="text" id="set-supabase-url" placeholder="https://your-project.supabase.co" class="w-full p-3 bg-white dark:bg-slate-900 border rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition font-medium">
+                        <input type="text" id="set-supabase-url" placeholder="https://ksmamrqrdbeujsqvbdjb.supabase.co" class="w-full p-3 bg-white dark:bg-slate-900 border rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition font-medium">
                     </div>
                     <div>
                         <label class="block text-[11px] font-bold uppercase text-slate-600 dark:text-slate-200 mb-1.5">Anon Key</label>
-                        <textarea id="set-supabase-anon-key" rows="2" placeholder="Supabase anon public key" class="w-full p-3 bg-white dark:bg-slate-900 border rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition font-medium"></textarea>
+                        <input type="password" id="set-supabase-anon-key" placeholder="Supabase anon public key" class="w-full p-3 bg-white dark:bg-slate-900 border rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition font-medium" autocomplete="off">
                     </div>
                     <div>
                         <label class="block text-[11px] font-bold uppercase text-slate-600 dark:text-slate-200 mb-1.5">Cloud Record ID</label>
-                        <input type="text" id="set-supabase-project-key" placeholder="shantibag-society" class="w-full p-3 bg-white dark:bg-slate-900 border rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition font-medium">
+                        <input type="text" id="set-supabase-project-key" placeholder="bhalum-society" class="w-full p-3 bg-white dark:bg-slate-900 border rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition font-medium">
                     </div>
                     <p class="text-[11px] text-slate-500 dark:text-slate-300">SQL setup ফাইল: <span class="font-bold">supabase-setup.sql</span></p>
                 </div>
@@ -376,7 +376,7 @@
         }
 
         function getDefaultSupabaseConfig() {
-            return { enabled: false, url: "", anonKey: "", projectKey: "default-qurbani-app" };
+            return { enabled: false, url: "https://ksmamrqrdbeujsqvbdjb.supabase.co", anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtzbWFtcnFyZGJldWpzcXZiZGpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk4NzQ0MjcsImV4cCI6MjA5NTQ1MDQyN30.liMAQVEBDujZ2e1NIDJRQqtZnW-b2lxFgHnI5EJ93yo", projectKey: "bhalum-society" };
         }
 
         function normalizeState(candidate) {
@@ -620,13 +620,13 @@
         }
 
         async function saveSettings() {
-            state.society.name = document.getElementById('set-society-name').value || "সমাজ কোরবানী";
+            state.society.name = document.getElementById('set-society-name').value || "Bhalum Society";
             const newCount = parseInt(document.getElementById('set-total-houses').value) || 1;
             supabaseConfig = {
                 enabled: document.getElementById('set-supabase-enabled').checked,
                 url: document.getElementById('set-supabase-url').value.trim(),
                 anonKey: document.getElementById('set-supabase-anon-key').value.trim(),
-                projectKey: document.getElementById('set-supabase-project-key').value.trim() || "default-qurbani-app"
+                projectKey: document.getElementById('set-supabase-project-key').value.trim() || "bhalum-society"
             };
             persistSupabaseConfig();
             await initializeSupabase();
