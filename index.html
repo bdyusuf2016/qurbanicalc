@@ -253,25 +253,25 @@
     </main>
 
     <!-- SETTINGS MODAL -->
-    <div id="settingsModal" class="fixed inset-0 bg-slate-900/80 hidden items-center justify-center z-[100] p-4 no-print">
-        <div class="bg-white dark:bg-slate-900 w-full max-w-md rounded-[2.5rem] shadow-2xl overflow-hidden">
-            <div class="p-6 border-b dark:border-slate-800 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-emerald-600 flex items-center gap-2"><i data-lucide="settings"></i> সাধারণ সেটিংস</h3>
-                <button onclick="closeSettingsModal()" class="text-slate-500 dark:text-slate-300 hover:text-slate-700 dark:hover:text-white transition p-1"><i data-lucide="x"></i></button>
+    <div id="settingsModal" onclick="handleModalBackdropClick(event, 'settingsModal')" class="fixed inset-0 bg-slate-900/80 hidden items-center justify-center z-[100] p-3 sm:p-4 no-print">
+        <div onclick="event.stopPropagation()" class="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[2rem] shadow-2xl overflow-hidden">
+            <div class="p-4 sm:p-5 border-b dark:border-slate-800 flex justify-between items-center">
+                <h3 class="text-lg font-bold text-emerald-600 flex items-center gap-2"><i data-lucide="settings" class="w-5 h-5"></i> সাধারণ সেটিংস</h3>
+                <button type="button" onclick="closeSettingsModal()" class="text-slate-500 dark:text-slate-300 hover:text-slate-700 dark:hover:text-white transition p-1"><i data-lucide="x" class="w-4 h-4"></i></button>
             </div>
-            <div class="p-8 space-y-6">
+            <div class="p-4 sm:p-5 space-y-4">
                 <div>
-                    <label class="block text-xs font-bold uppercase text-slate-600 dark:text-slate-200 mb-2">সমাজ/মহল্লার নাম</label>
-                    <input type="text" id="set-society-name" class="w-full p-4 bg-slate-50 dark:bg-slate-800 border rounded-2xl focus:ring-2 focus:ring-emerald-500 outline-none transition font-medium">
+                    <label class="block text-[11px] font-bold uppercase text-slate-600 dark:text-slate-200 mb-1.5">সমাজ/মহল্লার নাম</label>
+                    <input type="text" id="set-society-name" class="w-full p-3 bg-slate-50 dark:bg-slate-800 border rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition font-medium">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold uppercase text-slate-600 dark:text-slate-200 mb-2">মোট ঘর সংখ্যা</label>
-                    <input type="number" id="set-total-houses" class="w-full p-4 bg-slate-50 dark:bg-slate-800 border rounded-2xl focus:ring-2 focus:ring-emerald-500 outline-none font-bold text-xl">
+                    <label class="block text-[11px] font-bold uppercase text-slate-600 dark:text-slate-200 mb-1.5">মোট ঘর সংখ্যা</label>
+                    <input type="number" id="set-total-houses" class="w-full p-3 bg-slate-50 dark:bg-slate-800 border rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none font-bold text-lg">
                 </div>
-                <div class="rounded-[2rem] border border-slate-200 dark:border-slate-800 p-5 bg-slate-50 dark:bg-slate-800/50 space-y-4">
+                <div class="rounded-[1.25rem] border border-slate-200 dark:border-slate-800 p-4 bg-slate-50 dark:bg-slate-800/50 space-y-3">
                     <div class="flex items-center justify-between gap-4">
                         <div>
-                            <p class="text-xs font-bold uppercase text-slate-600 dark:text-slate-200">Supabase Cloud Sync</p>
+                            <p class="text-[11px] font-bold uppercase text-slate-600 dark:text-slate-200">Supabase Cloud Sync</p>
                             <p class="text-[11px] text-slate-500 dark:text-slate-300">একই ডাটা একাধিক ডিভাইসে রাখতে এটা চালু করুন</p>
                         </div>
                         <label class="inline-flex items-center gap-2 text-xs font-bold text-emerald-700 dark:text-emerald-300">
@@ -280,27 +280,27 @@
                         </label>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold uppercase text-slate-600 dark:text-slate-200 mb-2">Project URL</label>
-                        <input type="text" id="set-supabase-url" placeholder="https://your-project.supabase.co" class="w-full p-4 bg-white dark:bg-slate-900 border rounded-2xl focus:ring-2 focus:ring-emerald-500 outline-none transition font-medium">
+                        <label class="block text-[11px] font-bold uppercase text-slate-600 dark:text-slate-200 mb-1.5">Project URL</label>
+                        <input type="text" id="set-supabase-url" placeholder="https://your-project.supabase.co" class="w-full p-3 bg-white dark:bg-slate-900 border rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition font-medium">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold uppercase text-slate-600 dark:text-slate-200 mb-2">Anon Key</label>
-                        <textarea id="set-supabase-anon-key" rows="3" placeholder="Supabase anon public key" class="w-full p-4 bg-white dark:bg-slate-900 border rounded-2xl focus:ring-2 focus:ring-emerald-500 outline-none transition font-medium"></textarea>
+                        <label class="block text-[11px] font-bold uppercase text-slate-600 dark:text-slate-200 mb-1.5">Anon Key</label>
+                        <textarea id="set-supabase-anon-key" rows="2" placeholder="Supabase anon public key" class="w-full p-3 bg-white dark:bg-slate-900 border rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition font-medium"></textarea>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold uppercase text-slate-600 dark:text-slate-200 mb-2">Cloud Record ID</label>
-                        <input type="text" id="set-supabase-project-key" placeholder="shantibag-society" class="w-full p-4 bg-white dark:bg-slate-900 border rounded-2xl focus:ring-2 focus:ring-emerald-500 outline-none transition font-medium">
+                        <label class="block text-[11px] font-bold uppercase text-slate-600 dark:text-slate-200 mb-1.5">Cloud Record ID</label>
+                        <input type="text" id="set-supabase-project-key" placeholder="shantibag-society" class="w-full p-3 bg-white dark:bg-slate-900 border rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition font-medium">
                     </div>
                     <p class="text-[11px] text-slate-500 dark:text-slate-300">SQL setup ফাইল: <span class="font-bold">supabase-setup.sql</span></p>
                 </div>
-                <button onclick="saveSettings()" class="w-full py-4 bg-emerald-600 text-white rounded-2xl font-bold shadow-lg hover:bg-emerald-700 transition">সব সেটিংস আপডেট করুন</button>
+                <button onclick="saveSettings()" class="w-full py-3 bg-emerald-600 text-white rounded-xl font-bold shadow-lg hover:bg-emerald-700 transition">সব সেটিংস আপডেট করুন</button>
             </div>
         </div>
     </div>
 
     <!-- ANIMAL MODAL -->
-    <div id="animalModal" class="fixed inset-0 bg-slate-900/90 hidden items-center justify-center z-[100] p-2 sm:p-4 overflow-y-auto no-print">
-        <div class="bg-white dark:bg-slate-900 w-full max-w-4xl rounded-[2.5rem] shadow-2xl overflow-hidden my-10 animate-in zoom-in duration-300">
+    <div id="animalModal" onclick="handleModalBackdropClick(event, 'animalModal')" class="fixed inset-0 bg-slate-900/90 hidden items-center justify-center z-[100] p-2 sm:p-4 overflow-y-auto no-print">
+        <div onclick="event.stopPropagation()" class="bg-white dark:bg-slate-900 w-full max-w-4xl rounded-[2.5rem] shadow-2xl overflow-hidden my-10 animate-in zoom-in duration-300">
             <div class="islamic-gradient p-5 text-white flex justify-between items-center sticky top-0 z-20">
                 <h3 class="font-bold flex items-center gap-2 text-lg"><i data-lucide="plus-circle"></i> পশুর তথ্য ও বন্টন</h3>
                 <button onclick="closeAnimalModal()" class="bg-white/20 p-1 rounded-full hover:bg-white/40"><i data-lucide="x"></i></button>
@@ -596,18 +596,27 @@
         }
 
         // --- SETTINGS MODAL ---
+        function setModalVisibility(modalId, isOpen) {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            modal.classList.toggle('hidden', !isOpen);
+            modal.classList.toggle('flex', isOpen);
+        }
+
+        function handleModalBackdropClick(event, modalId) {
+            if (event.target.id === modalId) {
+                setModalVisibility(modalId, false);
+            }
+        }
+
         function openSettingsModal() {
             document.getElementById('set-society-name').value = state.society.name;
             document.getElementById('set-total-houses').value = state.society.houses.length;
-            const modal = document.getElementById('settingsModal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
+            setModalVisibility('settingsModal', true);
         }
 
         function closeSettingsModal() {
-            const modal = document.getElementById('settingsModal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
+            setModalVisibility('settingsModal', false);
         }
 
         async function saveSettings() {
@@ -830,11 +839,11 @@
                 document.querySelectorAll('.cat-field').forEach(i => i.value = a.catWeights[i.dataset.id] || 0);
                 a.shareholders.forEach(s => addShRow(s.name, s.parts));
             } else { addShRow("", 1); }
-            document.getElementById('animalModal').classList.replace('hidden', 'flex');
+            setModalVisibility('animalModal', true);
             validateWeights();
         }
 
-        function closeAnimalModal() { document.getElementById('animalModal').classList.replace('flex', 'hidden'); }
+        function closeAnimalModal() { setModalVisibility('animalModal', false); }
         function deleteAnimal(id) { if(confirm('মুছে ফেলতে চান?')) { state.animals = state.animals.filter(a => a.id !== id); saveAndRefresh(); } }
         function saveLocalState() { localStorage.setItem(LOCAL_STATE_KEY, JSON.stringify(normalizeState(state))); }
         function saveData() {
@@ -851,6 +860,11 @@
             saveData();
         }
         function showToast(m) { const t = document.getElementById('toast'); document.getElementById('toastMsg').innerText = m; t.classList.remove('translate-y-40'); setTimeout(() => t.classList.add('translate-y-40'), 3000); }
+        document.addEventListener('keydown', (event) => {
+            if (event.key !== 'Escape') return;
+            closeSettingsModal();
+            closeAnimalModal();
+        });
         window.onload = init;
     </script>
 </body>
